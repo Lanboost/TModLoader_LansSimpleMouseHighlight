@@ -1,0 +1,4 @@
+displayName = SimpleMouseHighlight
+author = Lanboost
+version = 0.9
+side = Client
