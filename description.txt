@@ -1,1 +1,1 @@
-SimpleMouseHighlight is a simple mod to try to highlight your cursor so you dont lose it when fighting bosses!
+Always shows a ugly cursor, so you don't lose it!
