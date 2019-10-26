@@ -5,7 +5,7 @@ using System;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace SimpleMouseHighlight
+namespace LansSimpleMouseHighlight
 {
 	public class SimpleMouseHighlight : Mod
 	{
@@ -23,8 +23,12 @@ namespace SimpleMouseHighlight
 			var c = new ILCursor(il);
 			var texture = this.GetTexture("cursor");
 			c.EmitDelegate<Action>(delegate () {
-				Microsoft.Xna.Framework.Color color = Main.cursorColor;
-				Main.spriteBatch.Draw(texture, new Vector2((float)Main.mouseX-texture.Width/2, (float)Main.mouseY - texture.Height / 2) + Vector2.One, null, color, 0f, default(Vector2), Main.cursorScale, SpriteEffects.None, 0f);
+				if (!texture.IsDisposed)
+				{
+					Microsoft.Xna.Framework.Color color = Main.cursorColor;
+					Main.spriteBatch.Draw(texture, new Vector2((float)Main.mouseX - texture.Width / 2, (float)Main.mouseY - texture.Height / 2) + Vector2.One, null, color, 0f, default(Vector2), Main.cursorScale, SpriteEffects.None, 0f);
+
+				}
 			});
 
 		}

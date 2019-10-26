@@ -1,6 +1,6 @@
 displayName = Lan's Simple Mouse Highlight
 author = Lanboost
-version = 0.1
+version = 0.2
 side = Client
 includePDB = true
 includeSource = true
