@@ -21,12 +21,13 @@ namespace LansSimpleMouseHighlight
 		public void AddExtraDraw(ILContext il)
 		{
 			var c = new ILCursor(il);
-			var texture = this.GetTexture("cursor");
+			var textureReq = ModContent.Request<Texture2D>("LansSimpleMouseHighlight/cursor");
 			c.EmitDelegate<Action>(delegate () {
-				if (!texture.IsDisposed)
+				if (!textureReq.Value.IsDisposed)
 				{
+					var texture = textureReq.Value;
 					Microsoft.Xna.Framework.Color color = Main.cursorColor;
-					Main.spriteBatch.Draw(texture, new Vector2((float)Main.mouseX - texture.Width / 2, (float)Main.mouseY - texture.Height / 2) + Vector2.One, null, color, 0f, default(Vector2), Main.cursorScale, SpriteEffects.None, 0f);
+					Main.spriteBatch.Draw(texture, new Vector2((float)Main.mouseX - texture.Width / 2, (float)Main.mouseY - texture.Height / 2) + Vector2.One, null, color, 0f, default(Vector2), 1, SpriteEffects.None, 0f);
 
 				}
 			});
